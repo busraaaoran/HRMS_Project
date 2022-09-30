@@ -6,4 +6,5 @@ import kodlamaio.hrms.entities.concretes.Candidate;
 
 public interface CandidateService {
 	List<Candidate> getAll();
+	
 }
