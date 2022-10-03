@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.VerificationStatusService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.dataAccess.abstracts.VerificationStatusDao;
 import kodlamaio.hrms.entities.concretes.VerificationStatus;
 
@@ -21,8 +23,8 @@ public class VerificationStatusManager implements VerificationStatusService {
 	}
 
 	@Override
-	public List<VerificationStatus> getAll() {
-		return this.verificationStatusDao.findAll();
+	public DataResult<List<VerificationStatus>> getAll() {
+		return new SuccessDataResult<List<VerificationStatus>>(this.verificationStatusDao.findAll(),"Statuses listed") ;
 	}
 
 }

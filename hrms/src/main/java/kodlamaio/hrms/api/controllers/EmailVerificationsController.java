@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.EmailVerificationService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.entities.concretes.EmailVerification;
 
 @RestController
@@ -23,7 +24,7 @@ public class EmailVerificationsController {
 	}
 	
 	@GetMapping("/getall")
-	public List<EmailVerification> getall(){
+	public DataResult<List<EmailVerification>> getall(){
 		return this.emailVerificationService.getAll();
 		}
 	}

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.dataAccess.abstracts.CandidateDao;
 import kodlamaio.hrms.entities.concretes.Candidate;
 
@@ -21,8 +23,8 @@ public class CandidateManager implements CandidateService {
 	}
 
 	@Override
-	public List<Candidate> getAll() {
-		return this.candidateDao.findAll();
+	public DataResult<List<Candidate>> getAll() {
+		return new SuccessDataResult<List<Candidate>>(this.candidateDao.findAll(),"Candidates listed");
 	}
 
 }
